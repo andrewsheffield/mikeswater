@@ -14,4 +14,15 @@ router.post('/', function(req, res, next) {
 
 });
 
+/* get all statuses for testing */
+router.get('/', function(req, res, next) {
+
+	Status.find({}, function(err, statuses) {
+		if (err) return res.json(err);
+		else if (statuses.length == 0) return res.json({ message: "No status created yet." });
+		else return res.json(statuses);
+	})
+
+});
+
 module.exports = router;
