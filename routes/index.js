@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Product = require('../models/product.js');
+var Status = require('../models/status.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -10,6 +11,8 @@ router.get('/', function(req, res, next) {
   	else if (products.length <= 0) return res.json({message: "No products connected yet"});
   	else return res.json(products);
   });
+
+
 
 });
 

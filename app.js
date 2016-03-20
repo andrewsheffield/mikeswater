@@ -5,12 +5,14 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/mikeswater');
+
+var uri = process.env.DATABASE_URL || 'mongodb://localhost/mikeswater';
+mongoose.connect(uri);
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var status = require('./routes/status');
 var products = require('./routes/products');
+var status = require('./routes/status');
 
 var app = express();
 
@@ -34,8 +36,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/status', status);
 app.use('/products', products);
+app.use('/status', status);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

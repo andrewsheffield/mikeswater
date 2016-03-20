@@ -1,29 +1,15 @@
 var express = require('express');
 var router = express.Router();
-var User = require('../models/user.js');
+var Status = require('../models/status.js');
 
-/* Push new status */
-router.put('/', function(req, res, next) {
+/* Add a status update for a product */
+router.post('/', function(req, res, next) {
 
-	var email = "Test@mikeswater.com";
-  
-	var newStatus = {
-		temp: req.body.temp,
-		pressure: req.body.pressure,
-		timestamp: Date.now(),
-		shutoffvalve: req.body.shutoffvalve
-	}
+	var new_status = new Status(req.body);
 
-	User.findOne({email: email}, function(err, user) {
+	new_status.save(function(err, status) {
 		if (err) return res.json(err);
-		if (!user) return res.json({message: "No user found"});
-		else {
-			user.status.push(newStatus);
-			user.save(function(err, user) {
-				if(err) return res.json(err);
-				else return res.json(user);
-			});
-		}
+		else return res.json(status);
 	});
 
 });

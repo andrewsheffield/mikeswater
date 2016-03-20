@@ -26,24 +26,4 @@ router.post('/', function(req, res, next) {
 
 });
 
-/* Add a status update for a product */
-router.put('/:id/status', function(req, res, next) {
-
-	var query = {_id: req.params.id};
-	var new_status = req.body.status;
-
-	Product.findOne(query, function(err, product) {
-		if (err) return res.json(err);
-		else if (!product) return res.json({message: "No product found with id: " + req.params.id});
-		else {
-			product.status.push(new_status);
-			product.save(function(err, data) {
-				if (err) return res.json(err);
-				else return res.json(data);
-			});
-		}
-	});
-
-});
-
 module.exports = router;

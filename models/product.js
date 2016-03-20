@@ -8,15 +8,7 @@ var productSchema = new Schema({
 	settings: {
 		shutoff_valve: {type: Boolean, default: false},
 		board_led: {type: Boolean, default: false}
-	},
-	status: [{
-		temp: Number,
-	  pressure: Number,
-	  timestamp: Date,
-	  shutoff_valve: Boolean,
-	  board_led: Boolean
-	}]
-
+	}
 });
 
 var Product = mongoose.model('product', productSchema);
