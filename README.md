@@ -10,6 +10,19 @@ Status api allows for a get all or a post function, currently built for testing.
 * returns:  An array of status objects previously posted to the database
 
 ####Post a new status to the database
+
+Object requires:
+```javascript
+{
+  hardware_id: Number,
+  temp: Number,
+  pressure: Number,
+  timestamp: Date,
+  shutoff_valve: Boolean,
+  board_led: Boolean
+}
+```
+
 * Address:  `https://mikeswaterapi.herokuapp.com/status`
 * type:     POST
 * returns:  returns the newly created status along with the databases Unique object id
