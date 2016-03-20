@@ -26,4 +26,15 @@ router.post('/', function(req, res, next) {
 
 });
 
+router.get('/:h_id/settings', function(req, res, next) {
+
+	var query = {hardware_id: req.params.h_id};
+
+	Product.findOne(query, function(err, product) {
+		if (err) return res.json(err);
+		else return res.json(product.settings);
+	})
+
+});
+
 module.exports = router;

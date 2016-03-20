@@ -10,7 +10,6 @@ var uri = process.env.DATABASE_URL || 'mongodb://localhost/mikeswater';
 mongoose.connect(uri);
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 var products = require('./routes/products');
 var status = require('./routes/status');
 
@@ -35,7 +34,6 @@ app.use(require('node-sass-middleware')({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
 app.use('/products', products);
 app.use('/status', status);
 
