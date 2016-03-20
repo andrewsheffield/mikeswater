@@ -2,10 +2,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var statusSchema = new Schema({
-	hardware_id: Number,
+	hardware_id: { type: Number, index: true },
 	temp: Number,
 	pressure: Number,
-	timestamp: Date,
+	timestamp: { type: Date, index: true },
 	shutoff_valve: Boolean,
 	board_led: Boolean
 });
