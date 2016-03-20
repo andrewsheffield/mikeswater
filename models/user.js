@@ -8,7 +8,19 @@ var userSchema = new Schema({
     hashedPassword: String,
     devices: [{
     	microID: Number,
-    	description: String
+    	description: String,
+    	status: [{
+	    	temp: Number,
+	    	pressure: Number,
+	    	timestamp: Date,
+	    	shutoffvalve: Boolean
+	    }],
+	    settings: {
+	    	shutoffvalve: {
+	    		type: Boolean,
+	    		default: false
+	    	}
+	    }
     }],
     creationTimestamp: {
     	type: Date,
@@ -18,19 +30,7 @@ var userSchema = new Schema({
     	type: Boolean,
     	default: true
     },
-    loginTimestamps: [Date],
-    status: [{
-    	temp: Number,
-    	pressure: Number,
-    	timestamp: Date,
-    	shutoffvalve: Boolean
-    }],
-    settings: {
-    	shutoffvalve: {
-    		type: Boolean,
-    		default: false
-    	}
-    }
+    loginTimestamps: [Date]
 });
 
 var User = mongoose.model('users', userSchema);
