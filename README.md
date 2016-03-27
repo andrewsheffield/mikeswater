@@ -22,7 +22,9 @@ Object requires:
   board_led: Boolean
 }
 ```
-
+`POST /status HTTP/1.1`
 * Address:  `https://mikeswaterapi.herokuapp.com/status`
-* type:     POST
+* Host: `https://mikeswaterapi.herokuapp.com`
+* Content-type: `application/json`
+* Content-type: Requires the character count of the JSON object
 * returns:  returns the newly created status along with the databases Unique object id
