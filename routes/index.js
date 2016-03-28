@@ -16,4 +16,11 @@ router.get('/', function(req, res, next) {
 
 });
 
+router.get('/test', function(req, res, next) {
+
+	console.log(req);
+	res.json({message: "Thank you for your support"});
+
+});
+
 module.exports = router;
