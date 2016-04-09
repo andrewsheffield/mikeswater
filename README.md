@@ -16,7 +16,7 @@ Object requires:
 {
   hardware_id: Number,
   temp: Number,
-  pressure: Number,
+  ambient_light: Number,
   timestamp: Date,
   shutoff_valve: Boolean,
   board_led: Boolean
