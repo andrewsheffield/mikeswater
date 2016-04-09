@@ -6,7 +6,7 @@ var Status = require('../models/status.js');
 router.post('/', function(req, res, next) {
 
 	var new_status = new Status(req.body);
-	console.log(req.body);
+	console.log(req);
 
 	new_status.save(function(err, status) {
 		if (err) return res.json(err);
