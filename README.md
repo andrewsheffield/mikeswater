@@ -17,7 +17,7 @@ Object requires:
   hardware_id: Number,
   temp: Number,
   ambient_light: Number,
-  timestamp: Date,
+  timestamp: Date, //No longer required, will default to server time
   shutoff_valve: Boolean,
   board_led: Boolean
 }

@@ -5,7 +5,7 @@ var statusSchema = new Schema({
 	hardware_id: { type: Number, index: true },
 	temp: Number,
 	ambient_light: Number,
-	timestamp: { type: Date, index: true },
+	timestamp: {type: Date, default: Date.now},
 	shutoff_valve: Boolean,
 	board_led: Boolean
 });
